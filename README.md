@@ -2,7 +2,7 @@
 
 Just a place for my studies and experiments...
 
-Each branch is a diferent subject so... The master branch will remain empty. Only this file must be merged. 
+Each branch is a diferent subject so... The master branch will remain empty. Only this file must be merged from master. 
 
 ### Reference Documentation
 For further reference, please consider the following sections:

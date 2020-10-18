@@ -11,6 +11,14 @@ public class LabApplication {
 	public static void main(String[] args) {
 		//SpringApplication.run(LabApplication.class, args);
 
+		/*
+		 * Strategy 
+		 * 
+		 * Utiliza interfaces para acoplar métodos comuns que implementam diferentes regras de negócio mas com um mesmo objetivo
+		 * 
+		 * Assim, as camadas superiores não precisam saber de todas as regras. Apenas da abstração
+		 */
+
 		Tax iss = new ISS();
 		Tax icms = new ICMS();
 		Tax iccc = new ICCC();

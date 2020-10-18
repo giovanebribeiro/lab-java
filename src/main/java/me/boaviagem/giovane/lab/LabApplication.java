@@ -14,14 +14,12 @@ public class LabApplication {
 		//SpringApplication.run(LabApplication.class, args);
 
 		/*
-		 * Template Method
+		 * Decorator
 		 * 
-		 * Utiliza classes abstratas para encapsular algoritmos comuns, ou regras de negócio muito semelhantes.
-		 * Evita termos que reescrever estratégias com pouquíssimas modificações.
-		 * Assim, só precisamos que cada classe filha implemente as diferenças mínimas.
+		 * Por meio de uma classe abstrata, agora podemos compor diversos comportamentos para gerar comportamentos complexos. 
+		 * Assim, conseguimos juntar especialidades e regras de negócio que estavam separadas. 
 		 * 
-		 * Exemplo: os impostos ICPP e IKCV utilizam um imposto condicional. Extendem uma classe abstrata que contém o template. E as classes
-		 * filhas apenas implementam este template.
+		 * Evolução do Strategy.
 		 * 
 		 */
 

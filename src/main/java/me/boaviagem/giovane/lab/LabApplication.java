@@ -30,6 +30,7 @@ public class LabApplication {
 		Tax iccc = new ICCC();
 		Tax icpp = new ICPP();
 		Tax ikcv = new IKCV();
+		Tax icmsWithIss = new ICMS(iss);
 
 		Budget budget = new Budget(500);
 
@@ -38,6 +39,7 @@ public class LabApplication {
 		System.out.println("ICCC tax = " + iccc.calculate(budget));
 		System.out.println("ICPP tax = " + icpp.calculate(budget));
 		System.out.println("IKCV tax = " + ikcv.calculate(budget));
+		System.out.println("ICMS with ISS tax = " + icmsWithIss.calculate(budget));
 		
 		
 	}

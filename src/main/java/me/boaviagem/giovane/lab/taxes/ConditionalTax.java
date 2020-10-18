@@ -2,7 +2,9 @@ package me.boaviagem.giovane.lab.taxes;
 
 import me.boaviagem.giovane.lab.Budget;
 
-public abstract class ConditionalTax implements Tax {
+public abstract class ConditionalTax extends Tax {
+
+    // for simplicity reasons, we assume that child classes must not compose other taxes
 
     @Override
     public double calculate(Budget budget) {

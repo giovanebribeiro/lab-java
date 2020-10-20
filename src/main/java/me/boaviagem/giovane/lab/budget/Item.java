@@ -1,4 +1,4 @@
-package me.boaviagem.giovane.lab;
+package me.boaviagem.giovane.lab.budget;
 
 public class Item {
 

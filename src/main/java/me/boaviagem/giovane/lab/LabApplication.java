@@ -1,11 +1,6 @@
 package me.boaviagem.giovane.lab;
 
-import me.boaviagem.giovane.lab.taxes.ICCC;
-import me.boaviagem.giovane.lab.taxes.ICMS;
-import me.boaviagem.giovane.lab.taxes.ICPP;
-import me.boaviagem.giovane.lab.taxes.IKCV;
-import me.boaviagem.giovane.lab.taxes.ISS;
-import me.boaviagem.giovane.lab.taxes.Tax;
+import me.boaviagem.giovane.lab.budget.Budget;
 
 //@SpringBootApplication
 public class LabApplication {
@@ -14,32 +9,27 @@ public class LabApplication {
 		//SpringApplication.run(LabApplication.class, args);
 
 		/*
-		 * Decorator
+		 * State
 		 * 
-		 * Por meio de uma classe abstrata, agora podemos compor diversos comportamentos para gerar comportamentos complexos. 
-		 * Assim, conseguimos juntar especialidades e regras de negócio que estavam separadas. 
-		 * 
-		 * Evolução do Strategy.
+		 * Utilizado quando temos ações que variam de acordo com estados da classe. É literalmente a implementação de uma máquina de estados.
+		 * Só precisamos ter o cuidado de transicionar corretamente os estados e cuidar para que a classe principal (no caso, budget), tenha 
+		 * métodos de controle corretos e que possam ser repassados para as camadas superiores
 		 * 
 		 */
-
-		Tax iss = new ISS();
-		Tax icms = new ICMS();
-		Tax iccc = new ICCC();
-		Tax icpp = new ICPP();
-		Tax ikcv = new IKCV();
-		Tax icmsWithIss = new ICMS(iss);
-
 		Budget budget = new Budget(500);
 
-		System.out.println("ISS tax = " + iss.calculate(budget));
-		System.out.println("ICMS tax = " + icms.calculate(budget));
-		System.out.println("ICCC tax = " + iccc.calculate(budget));
-		System.out.println("ICPP tax = " + icpp.calculate(budget));
-		System.out.println("IKCV tax = " + ikcv.calculate(budget));
-		System.out.println("ICMS with ISS tax = " + icmsWithIss.calculate(budget));
-		
-		
+		budget.applyExtraDiscount();
+
+		System.out.println("Extra discount applied: " + budget.getValue());
+
+		budget.approve();
+		budget.applyExtraDiscount();
+
+		System.out.println("After approve, extra discount: " + budget.getValue());
+
+		budget.finalize();
+		budget.applyExtraDiscount(); // should throw an exception here
+
 	}
 
 }

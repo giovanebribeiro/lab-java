@@ -4,9 +4,16 @@ import me.boaviagem.giovane.lab.budget.Budget;
 
 public class OnApproval implements BudgetState {
 
+    private boolean discountAlreadyApplied = false;
+
     @Override
     public void applyExtraDiscount(Budget budget) {
-        budget.setValue(budget.getValue() - budget.getValue() * 0.05);
+        if(!discountAlreadyApplied){
+            budget.setValue(budget.getValue() - budget.getValue() * 0.05);
+            discountAlreadyApplied = true;
+        } else {
+            throw new RuntimeException("Discount already applied!");
+        }
     }
 
 

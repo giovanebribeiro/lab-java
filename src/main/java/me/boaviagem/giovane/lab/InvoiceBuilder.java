@@ -15,10 +15,17 @@ public class InvoiceBuilder {
     private Calendar creationDate;
     private String obs;
 
+    private List<IActionAfterInvoice> actions;
+
+    public void addAction(IActionAfterInvoice action){
+        this.actions.add(action);
+    }
+
     public InvoiceBuilder() {
         this.itens = new LinkedList<Item>();
         this.total = 0;
         this.taxes = 0;
+        this.actions = new LinkedList<IActionAfterInvoice>();
     }
 
     public InvoiceBuilder fromCompany(String company) {
@@ -49,7 +56,13 @@ public class InvoiceBuilder {
     }
 
     public Invoice build(){
-        return new Invoice(company, cnpj, creationDate, total, taxes, itens, obs);
+        Invoice i = new Invoice(company, cnpj, creationDate, total, taxes, itens, obs);
+
+        for(IActionAfterInvoice action: this.actions){
+            action.run(i);
+        }
+
+        return i;
     }
     
 }

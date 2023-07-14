@@ -35,6 +35,14 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/jfugue/jfugue -->
+		<dependency>
+			<groupId>jfugue</groupId>
+			<artifactId>jfugue</artifactId>
+			<version>5.0.9</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
